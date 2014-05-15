@@ -5,10 +5,17 @@ set smartindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
 " set linenumbering
 set number
+set numberwidth=5
 syntax on
 set nowrap
+
+set showcmd " display incomplete commands "
+set laststatus=2 " always display the status line "
+
+
 " filename and file information
 set statusline=%t       "tail of the filename
 " :set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -35,3 +42,7 @@ xmap K 5k
 
 " add support for twig through jinja.vim and htmljinja.vim "
 au BufRead,BufNewFile *.twig set filetype=htmljinja
+
+" split treating "
+set splitbelow
+set splitright
