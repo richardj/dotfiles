@@ -12,6 +12,9 @@ set numberwidth=5
 syntax on
 set nowrap
 
+" highlight search results
+set hlsearch
+
 set showcmd " display incomplete commands "
 set laststatus=2 " always display the status line "
 
