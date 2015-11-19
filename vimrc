@@ -1,5 +1,5 @@
-" My personal vimrc file"
-" Created August 05, 2013"
+execute pathogen#infect()
+
 " set tabs to 2 spaces"
 set smartindent
 set expandtab
@@ -11,6 +11,10 @@ set number
 set numberwidth=5
 syntax on
 set nowrap
+
+
+" relative line numbering on
+set relativenumber
 
 " highlight search results
 set hlsearch
@@ -43,6 +47,12 @@ nmap K 5k
 xmap J 5j
 xmap K 5k
 
+" move even faster with hjkl
+xmap <C-j> 50j
+
+" format json
+nmap =j :%!python -m json.tool<CR>
+
 " add support for twig through jinja.vim and htmljinja.vim "
 au BufRead,BufNewFile *.twig set filetype=htmljinja
 
@@ -59,3 +69,18 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
 nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
 nmap <silent> <c-l> :wincmd l<CR>
+
+
+let g:molokai_original = 1
+" let g:rehash256 = 1
+
+" fuzzy search with ctrl-p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" set colorscheme to vividchalk, theme resides in the ~/.vim/colors folder
+:colorscheme vividchalk
+" set line number bar colors
+highlight LineNr ctermfg=grey ctermbg=black
+
+" we need more custom colors
+hi htmlEqualSign guifg=red
