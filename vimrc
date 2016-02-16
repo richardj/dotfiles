@@ -1,5 +1,6 @@
 execute pathogen#infect()
-
+" My personal vimrc file"
+" Created August 05, 2013"
 " set tabs to 2 spaces"
 set smartindent
 set expandtab
@@ -15,6 +16,25 @@ set nowrap
 
 " relative line numbering on
 set relativenumber
+
+" relative / absolute line numbering switch
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+
+nnoremap <C-n> :call NumberToggle()<cr>
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 
 " highlight search results
 set hlsearch
@@ -60,14 +80,14 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja
 set splitbelow
 set splitright
 
-"##############################################################################                                                                         
-" Easier split navigation                                                                                                                               
-"##############################################################################                                                                         
+"##############################################################################
+" Easier split navigation
+"##############################################################################
 
 " Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
-nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
-nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 
